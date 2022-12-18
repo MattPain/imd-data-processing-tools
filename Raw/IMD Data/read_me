@@ -1,0 +1,18 @@
+Directory contains the raw IMD data downloaded from:
+
+https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019
+
+Data will need to be downloaded from the link above. Your Raw folder should contain the following files:
+
+- File_1_-_IMD2019_Index_of_Multiple_Deprivation
+- File_2_-_IoD2019_Domains_of_Deprivation
+- File_3_-_IoD2019_Supplementary_Indices_-_IDACI_and_IDAOPI
+- File_4_-_IoD2019_Sub-domains_of_Deprivation
+- File_5_-_IoD2019_Scores
+- File_6_-_IoD2019_Population_Denominators
+- File_8_-_IoD2019_Underlying_Indicators
+- File_9_-_IoD2019_Transformed_Scores
+- File_10_-_IoD2019_Local_Authority_District_Summaries__lower-tier__
+- File_11_-_IoD2019_Local_Authority_District_Summaries__upper-tier__
+- File_12_-_IoD2019_Local_Enterprise_Partnership__LEP__Summaries
+- File_13_-_IoD2019_Clinical_Commissioning_Group__CCG__Summaries

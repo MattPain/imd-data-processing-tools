@@ -13,24 +13,38 @@ from pathlib import Path
 
 
 class ProcessIMDData:
+    """
+    This class takes the raw IMD data in a given directory and then converts it to a database ready format.
+    """
     # Class Fields
     working_directory = os.getcwd()
 
     def __init__(self):
+        """
+        :param self.parent_path:
+            gets absolute path of working directory
+        :type self.parent_path:
+            string
+
+        :param self.data_file_path:
+            relative file path of raw IMD data added to parent path
+        :type self.data_file_path:
+            string
+
+        :param self.write_file_path:
+            relative file path used to write processed IMD data
+        :type self.write_file_path:
+            string
+        """
         self.parent_path = Path(self.working_directory)
-        self.data_file_path = r'{}\\01 Raw\\IMD Data'.format(self.parent_path.parent.absolute())
-        self.write_file_path = r'{}\\03 Processed\\IMD Data'.format(self.parent_path.parent.absolute())
+        self.data_file_path = r'{}\\Raw\\IMD Data'.format(self.parent_path)
+        self.write_file_path = r'{}\\Processed\\IMD Data'.format(self.parent_path)
 
     def read_imd_data(self) -> dict:
 
         """
         Read spreadsheet data from a given directory and creates a dictionary with
         the filenames as keys and a list of individual sheets as
-
-        :param filepath:
-            The directory of the Excel spreadsheets
-        :type filepath:
-            string
 
         :returns spreadsheet_dictionary:
             Dictionary of individual sheets as values and spreadsheet names as keys
@@ -154,12 +168,9 @@ class ProcessIMDData:
     def write_data(self, spreadsheet_dictionary: dict) -> None:
 
         """
-        Writes dataframe data from a dictionary of sheet names(Keys) and dataframes(Values) to a specified local directory.
 
-        :param write_directory:
-            The directory to write the processed data to.
-        :type filepath:
-            string
+        Writes dataframe data from a dictionary of sheet names(Keys) and dataframes(Values) to a specified local
+        directory.
 
         :param spreadsheet_dictionary:
             A dictionary containing sheet names as keys and lists of dataframes as values.
