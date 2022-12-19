@@ -1,7 +1,7 @@
 """
     Author: Matt Pain
     Version: 1.0
-    Date Updated: 11/12/2022
+    Date Updated: 19/12/2022
 """
 
 # System level libraries imports
@@ -212,4 +212,24 @@ class ProcessLookupTable:
 
         return lookup_table
 
+    def write_lookups(self, master_lookup: pd.DataFrame, bridge_tables: list) -> None:
+        """
+        This function writes the master lookup table and the associated bridge tables ready for copying into the
+        database.
 
+        :param master_lookup:
+            master lookup dataframe
+        :type master_lookup:
+            dataframe
+
+        :param bridge_tables:
+            list of bridge tables
+        :type bridge_tables:
+            list
+        """
+        # Write Master
+        master_lookup.to_csv(f"{self.write_file_path}\\MasterLookUp.csv", header=False, index=False)
+
+        # Write bridge tables
+        for df, file_name in zip(bridge_tables, self.bridge_table_index_dictionary.keys()):
+            df.to_csv(f"{self.write_file_path}\\{file_name}.csv", header=False, index=False)
